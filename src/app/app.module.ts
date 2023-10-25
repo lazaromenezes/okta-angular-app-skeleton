@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AdminModule } from './admin/admin.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { AdminModule } from './admin/admin.module';
   ],
   imports: [
     BrowserModule,
+    AuthModule,
     DashboardModule,
     AdminModule,
     AppRoutingModule

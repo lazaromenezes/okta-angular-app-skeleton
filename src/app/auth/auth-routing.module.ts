@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminComponent } from './admin.component';
-import { AUTH_GUARD } from '../auth/auth-guard';
+import { OktaCallbackComponent } from '@okta/okta-angular';
 
 const routes: Routes = [
-  {path: 'admin', component: AdminComponent, canActivate: [ AUTH_GUARD ]}
+  {path: 'login/callback', component: OktaCallbackComponent}
 ];
 
 @NgModule({
@@ -13,6 +12,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AdminRoutingModule { }
-
+export class AuthRoutingModule { }
 
