@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { OktaAuthModule, OktaConfig } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 import { AuthRoutingModule } from './auth-routing.module';
-import { AuthGuard } from './auth-guard';
+import { AuthGuard, AuthRoleGuard } from './auth-guard';
+import { AuthProfile, OktaAuthProfile } from './auth-profile'; 
 
 const AUTH_CONFIG = {
   issuer: 'https://trial-2283582.okta.com/oauth2/default',
@@ -22,7 +23,9 @@ const MODULE_CONFIG: OktaConfig = { oktaAuth: OKTA_AUTH };
     OktaAuthModule.forRoot(MODULE_CONFIG)
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    AuthRoleGuard,
+    { provide: AuthProfile, useClass: OktaAuthProfile }
   ]
 })
 export class AuthModule { 
